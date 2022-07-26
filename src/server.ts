@@ -1,15 +1,16 @@
-import express from 'express'
+import express from 'express';
+import 'reflect-metadata';
 
-const app = express()
-const port = 3334
+const port = 3334;
+import { routes } from './router';
 
-app.get('/', (req, res) => {
-  return res.json({ message: 'oi'})
-})
 
-function startpApp () {
-  app.listen(port)
-  console.log(`Server running on port ${port}`)
+function startpApp(): void {
+  const app = express();
+  app.use(express.json());
+  routes.map((route) => app.use(route));
+  app.listen(port);
+  console.log(`Server running on port ${port}`);
 }
 
-startpApp()
+startpApp();
