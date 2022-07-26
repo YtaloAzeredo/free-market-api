@@ -1,9 +1,26 @@
-export class User {
-  name: string;
-  email: string;
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from 'typeorm';
 
-  constructor(name: string, email: string) {
-    this.name = name;
-    this.email = email;
-  }
+@Entity()
+export class User extends BaseEntity {
+  @PrimaryGeneratedColumn()
+    id!: number;
+
+  @Column({ nullable: true })
+    name!: string;
+
+  @Column({ nullable: true })
+    email!: string;
+
+  @CreateDateColumn()
+    createdAt!: Date;
+
+  @UpdateDateColumn()
+    updatedAt!: Date;
 }
