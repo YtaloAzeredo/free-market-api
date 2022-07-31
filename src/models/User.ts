@@ -12,11 +12,17 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
     id!: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
     name!: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false, unique: true })
     email!: string;
+
+  @Column({ nullable: false })
+    password!: string;
+
+  @Column({ nullable: true })
+    address_id!: number;
 
   @CreateDateColumn()
     createdAt!: Date;
