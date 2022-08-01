@@ -1,4 +1,4 @@
-import { DataSourceOptions } from 'typeorm';
+import { DataSourceOptions } from 'typeorm'
 
 export const config: DataSourceOptions = {
   type: 'postgres',
@@ -13,4 +13,4 @@ export const config: DataSourceOptions = {
 
   logging: false,
   synchronize: true
-};
+}

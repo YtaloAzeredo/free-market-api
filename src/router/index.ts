@@ -1,5 +1,5 @@
-import userRouter from './userRouter';
+import userRouter from './userRouter'
 
 export const routes = [
   userRouter
-];
+]
