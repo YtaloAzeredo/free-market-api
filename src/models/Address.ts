@@ -5,25 +5,25 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
 
 @Entity()
 export class Address extends BaseEntity {
   @PrimaryGeneratedColumn()
-    id!: number;
+    id!: number
 
   @Column({ nullable: false })
-    street!: string;
+    street!: string
 
   @Column({ nullable: false })
-    city!: string;
+    city!: string
 
   @Column({ nullable: false })
-    zip_code!: string;
+    zipCode!: string
 
   @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
 
   @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
 }

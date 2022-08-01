@@ -3,30 +3,39 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
+import { ProductCategory } from './ProductCategory'
+import { User } from './User'
 
 @Entity()
 export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
-    id!: number;
+    id!: number
 
   @Column({ nullable: false })
-    description!: string;
+    description!: string
 
   @Column({ nullable: false })
-    price!: number;
+    price!: number
 
   @Column({ nullable: false })
-    quantity!: number;
+    quantity!: number
 
-  @Column({ nullable: true })
-    category_id!: number;
+  @ManyToOne(() => ProductCategory, (category) => category.products)
+    category!: ProductCategory
+
+  @ManyToMany(() => User)
+  @JoinTable()
+    users!: User[]
 
   @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
 
   @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
 }

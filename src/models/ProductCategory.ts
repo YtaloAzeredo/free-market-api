@@ -3,24 +3,29 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
+import { Product } from './Product'
 
 @Entity()
 export class ProductCategory extends BaseEntity {
   @PrimaryGeneratedColumn()
-    id!: number;
+    id!: number
 
   @Column({ nullable: false, unique: true })
-    code!: string;
+    code!: string
 
   @Column({ nullable: false })
-    description!: string;
+    description!: string
+
+  @OneToMany(() => Product, (product) => product.category)
+    products!: Product[]
 
   @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
 
   @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
 }

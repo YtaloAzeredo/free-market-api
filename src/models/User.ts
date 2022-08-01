@@ -3,30 +3,42 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
+import { Address } from './Address'
+import { SaleData } from './SaleData'
 
 @Entity()
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
-    id!: number;
+    id!: number
 
   @Column({ nullable: false })
-    name!: string;
+    name!: string
 
   @Column({ nullable: false, unique: true })
-    email!: string;
+    email!: string
 
   @Column({ nullable: false })
-    password!: string;
+    password!: string
 
-  @Column({ nullable: true })
-    address_id!: number;
+  @OneToOne(() => Address)
+  @JoinColumn()
+    address!: Address
+
+  @OneToMany(() => SaleData, (saleData) => saleData.seller)
+    sellers!: User[]
+
+  @OneToMany(() => SaleData, (saleData) => saleData.buyer)
+    buyers!: User[]
 
   @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
 
   @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
 }

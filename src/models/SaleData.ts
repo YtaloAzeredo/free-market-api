@@ -1,29 +1,37 @@
 import {
   BaseEntity,
-  Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
+import { Product } from './Product'
+import { User } from './User'
 
 @Entity()
 export class SaleData extends BaseEntity {
   @PrimaryGeneratedColumn()
-    id!: number;
+    id!: number
 
-  @Column({ nullable: false })
-    product_owner_id!: number;
+  @ManyToOne(() => User)
+  @JoinColumn()
+    seller!: User
 
-  @Column({ nullable: false })
-    product_buyer_id!: number;
+  @ManyToOne(() => User)
+  @JoinColumn()
+    buyer!: User
 
-  @Column({ nullable: false })
-    product_id!: number;
+  @ManyToMany(() => Product)
+  @JoinTable()
+    products!: Product[]
 
   @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
 
   @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
 }
