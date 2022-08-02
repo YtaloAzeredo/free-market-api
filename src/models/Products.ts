@@ -9,11 +9,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { ProductCategory } from './ProductCategory'
-import { User } from './User'
+import { ProductCategories } from './ProductCategories'
+import { Users } from './Users'
 
 @Entity()
-export class Product extends BaseEntity {
+export class Products extends BaseEntity {
   @PrimaryGeneratedColumn()
     id!: number
 
@@ -26,12 +26,12 @@ export class Product extends BaseEntity {
   @Column({ nullable: false })
     quantity!: number
 
-  @ManyToOne(() => ProductCategory, (category) => category.products)
-    category!: ProductCategory
+  @ManyToOne(() => ProductCategories, (category) => category.products)
+    category!: ProductCategories
 
-  @ManyToMany(() => User)
+  @ManyToMany(() => Users)
   @JoinTable()
-    users!: User[]
+    users!: Users[]
 
   @CreateDateColumn()
     createdAt!: Date

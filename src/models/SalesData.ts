@@ -9,25 +9,25 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Product } from './Product'
-import { User } from './User'
+import { Products } from './Products'
+import { Users } from './Users'
 
 @Entity()
-export class SaleData extends BaseEntity {
+export class SalesData extends BaseEntity {
   @PrimaryGeneratedColumn()
     id!: number
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => Users)
   @JoinColumn()
-    seller!: User
+    seller!: Users
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => Users)
   @JoinColumn()
-    buyer!: User
+    buyer!: Users
 
-  @ManyToMany(() => Product)
+  @ManyToMany(() => Products)
   @JoinTable()
-    products!: Product[]
+    products!: Products[]
 
   @CreateDateColumn()
     createdAt!: Date

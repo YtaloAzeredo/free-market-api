@@ -3,17 +3,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Address } from './Address'
-import { SaleData } from './SaleData'
+import { Addresses } from './Addresses'
+import { SalesData } from './SalesData'
 
 @Entity()
-export class User extends BaseEntity {
+export class Users extends BaseEntity {
   @PrimaryGeneratedColumn()
     id!: number
 
@@ -26,15 +24,14 @@ export class User extends BaseEntity {
   @Column({ nullable: false })
     password!: string
 
-  @OneToOne(() => Address)
-  @JoinColumn()
-    address!: Address
+  @OneToMany(() => Addresses, (address) => address.user)
+    addresses!: Addresses[]
 
-  @OneToMany(() => SaleData, (saleData) => saleData.seller)
-    sellers!: User[]
+  @OneToMany(() => SalesData, (saleData) => saleData.seller)
+    sellers!: Users[]
 
-  @OneToMany(() => SaleData, (saleData) => saleData.buyer)
-    buyers!: User[]
+  @OneToMany(() => SalesData, (saleData) => saleData.buyer)
+    buyers!: Users[]
 
   @CreateDateColumn()
     createdAt!: Date
