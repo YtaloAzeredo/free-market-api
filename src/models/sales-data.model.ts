@@ -9,8 +9,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Products } from './Products'
-import { Users } from './Users'
+import { Products } from './products.model'
+import { Users } from './users.model'
 
 @Entity()
 export class SalesData extends BaseEntity {

@@ -22,7 +22,7 @@
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
       "@models/*": ["./src/models/*"],
-      "@router/*": ["src/router/*"],
+      "@routes/*": ["src/routes/*"],
       "@errors/*": ["src/errors/*"],
       "@repositories/*": ["src/repositories/*"],
       "@types/*": ["src/types/*"]

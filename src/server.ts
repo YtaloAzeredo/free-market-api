@@ -3,9 +3,9 @@ import express from 'express'
 import 'reflect-metadata'
 import './bootstrap'
 import './database'
-import { routes } from './router'
+import { routes } from './routes'
 import { middlewares } from './middlewares'
-import { errorHandler } from './middlewares/ErrorHandler'
+import { errorHandler } from './middlewares/error-handler.middleware'
 
 const port = process.env.PORT
 

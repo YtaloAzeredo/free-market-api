@@ -7,8 +7,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Addresses } from './Addresses'
-import { SalesData } from './SalesData'
+import { Addresses } from './addresses.model'
+import { SalesData } from './sales-data.model'
 
 @Entity()
 export class Users extends BaseEntity {

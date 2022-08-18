@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Users } from './Users'
+import { Users } from './users.model'
 
 @Entity()
 export class Addresses extends BaseEntity {
