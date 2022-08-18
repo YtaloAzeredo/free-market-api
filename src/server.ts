@@ -1,3 +1,4 @@
+import 'express-async-errors'
 import express from 'express'
 import 'reflect-metadata'
 import './bootstrap'
@@ -5,7 +6,6 @@ import './database'
 import { routes } from './router'
 import { middlewares } from './middlewares'
 import { errorHandler } from './middlewares/ErrorHandler'
-import 'express-async-errors'
 
 const port = process.env.PORT
 
