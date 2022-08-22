@@ -1,8 +1,9 @@
-import { Users } from '@models/users.model'
+import { Users } from '@modules/users/models/users.model'
 import NotFoundError from '@errors/not-found.error'
-import { Abstract } from './abstract.repository'
+import { Abstract } from '../../../repositories/abstract.repository'
+import { IUsersRepository } from './users-repository.interface'
 
-class UserRepository extends Abstract {
+export class UserRepository extends Abstract implements IUsersRepository {
   constructor () {
     super('User')
   }
@@ -13,7 +14,7 @@ class UserRepository extends Abstract {
     return response
   }
 
-  async getOneBy ({ id, email, throws }: { id?: number, email?: string, throws?: boolean }): Promise<Users> {
+  async getOne ({ id, email, throws }: { id?: number, email?: string, throws?: boolean }): Promise<Users> {
     const response = await Users.findOneBy({ id, email }) as Users
     if (!response && throws) throw new NotFoundError(this.getNotFoundError())
     return response
@@ -36,5 +37,3 @@ class UserRepository extends Abstract {
     return request.remove()
   }
 }
-
-export default new UserRepository()

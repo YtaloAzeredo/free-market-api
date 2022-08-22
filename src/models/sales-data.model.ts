@@ -10,7 +10,7 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { Products } from './products.model'
-import { Users } from './users.model'
+import { Users } from '../modules/users/models/users.model'
 
 @Entity()
 export class SalesData extends BaseEntity {

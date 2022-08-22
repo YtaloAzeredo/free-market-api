@@ -1,6 +1,6 @@
-import { Addresses } from '@models/addresses.model'
+import { Addresses } from '@modules/addresses/models/addresses.model'
 import NotFoundError from '@errors/not-found.error'
-import { Abstract } from './abstract.repository'
+import { Abstract } from '../../../repositories/abstract.repository'
 
 class AddressesRepository extends Abstract {
   constructor () {

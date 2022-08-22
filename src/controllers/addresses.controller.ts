@@ -1,7 +1,7 @@
-import { Addresses } from '@models/addresses.model'
+import { Addresses } from '@modules/addresses/models/addresses.model'
 import { Request, Response } from 'express'
-import AddressesRepository from '@repositories/addresses.repository'
-import UsersRepository from '@repositories/users.repository'
+import AddressesRepository from '@modules/addresses/repositories/addresses.repository'
+import UsersRepository from 'src/modules/users/repositories/users.repository'
 
 class AddressesController {
   async getAll (req: Request, res: Response): Promise<Response> {
