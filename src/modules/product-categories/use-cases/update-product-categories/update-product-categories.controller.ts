@@ -1,12 +1,12 @@
+import { Request, Response } from 'express'
 import { IController } from '@interfaces/controller.interface'
 import { IUseCase } from '@interfaces/use-case.interface'
-import { Request, Response } from 'express'
 
-export class UpdateUsersController implements IController {
-  constructor (private readonly updateUsersUseCase: IUseCase) { }
+export class UpdateProductCategoriesController implements IController {
+  constructor (private readonly updateProductCategoriesUseCase: IUseCase) { }
 
   async handle (req: Request, res: Response): Promise<Response> {
-    const response = await this.updateUsersUseCase.execute({
+    const response = await this.updateProductCategoriesUseCase.execute({
       id: +req.params.id,
       ...req.body
     })

@@ -1,8 +1,9 @@
-import { ProductCategories } from '@models/product-categories.model'
+import { ProductCategories } from '@modules/product-categories/models/product-categories.model'
 import NotFoundError from '@errors/not-found.error'
-import { Abstract } from './abstract.repository'
+import { Abstract } from '../../../repositories/abstract.repository'
+import { IProductCategoriesRepository } from './product-categories-repository.interface'
 
-class ProductCategoriesRepository extends Abstract {
+export class ProductCategoriesRepository extends Abstract implements IProductCategoriesRepository {
   constructor () {
     super('ProductCategory')
   }
@@ -13,7 +14,7 @@ class ProductCategoriesRepository extends Abstract {
     return response
   }
 
-  async getOneBy ({ id, code, throws }: { id?: number, code?: string, throws?: boolean }): Promise<ProductCategories> {
+  async getOne ({ id, code, throws }: { id?: number, code?: string, throws?: boolean }): Promise<ProductCategories> {
     const response = await ProductCategories.findOneBy({ id, code }) as ProductCategories
     if (!response && throws) throw new NotFoundError(this.getNotFoundError())
     return response
@@ -36,5 +37,3 @@ class ProductCategoriesRepository extends Abstract {
     return request.remove()
   }
 }
-
-export default new ProductCategoriesRepository()

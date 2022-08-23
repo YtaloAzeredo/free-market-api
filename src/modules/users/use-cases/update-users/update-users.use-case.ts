@@ -6,8 +6,8 @@ import { IUsersRepository } from '@modules/users/repositories/users-repository.i
 export class UpdateUsersUseCase implements IUseCase {
   constructor (private readonly usersRepository: IUsersRepository) {}
 
-  async execute ({ id, userData }: {id: number, userData: Users}): Promise<Users> {
-    const response = await this.usersRepository.getOne({ id, throws: true })
+  async execute (userData: Users): Promise<Users> {
+    const response = await this.usersRepository.getOne({ id: userData.id, throws: true })
     if (userData.email) {
       const userExist = await this.usersRepository.getOne({ email: userData.email })
       if (userExist) throw new ConflictError(this.usersRepository.getConflictError())
