@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Products } from './products.model'
+import { Products } from '../modules/products/models/products.model'
 import { Users } from '../modules/users/models/users.model'
 
 @Entity()
