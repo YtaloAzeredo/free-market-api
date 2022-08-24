@@ -1,7 +1,7 @@
-import { createUsersController } from '@modules/users/use-cases/create-users'
-import { deleteUsersController } from '@modules/users/use-cases/delete-users'
 import { getAllUsersController } from '@modules/users/use-cases/get-all-users'
 import { getOneUsersController } from '@modules/users/use-cases/get-one-users'
+import { createUsersController } from '@modules/users/use-cases/create-users'
+import { deleteUsersController } from '@modules/users/use-cases/delete-users'
 import { updateUsersController } from '@modules/users/use-cases/update-users'
 import { Router } from 'express'
 const router = Router()

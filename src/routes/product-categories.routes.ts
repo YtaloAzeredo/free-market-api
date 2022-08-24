@@ -1,9 +1,8 @@
-import { createProductCategoriesController } from '@modules/product-categories/use-cases/create-product-categories'
-import { deleteProductCategoriesController } from '@modules/product-categories/use-cases/delete-product-categories'
 import { getAllProductCategoriesController } from '@modules/product-categories/use-cases/get-all-product-categories'
 import { getOneProductCategoriesController } from '@modules/product-categories/use-cases/get-one-product-categories'
+import { createProductCategoriesController } from '@modules/product-categories/use-cases/create-product-categories'
+import { deleteProductCategoriesController } from '@modules/product-categories/use-cases/delete-product-categories'
 import { updateProductCategoriesController } from '@modules/product-categories/use-cases/update-product-categories'
-
 import { Router } from 'express'
 const router = Router()
 

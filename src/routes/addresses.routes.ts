@@ -1,9 +1,8 @@
-import { createAddressesController } from '@modules/addresses/use-cases/create-addresses'
-import { deleteAddressesController } from '@modules/addresses/use-cases/delete-addresses'
 import { getAllAddressesController } from '@modules/addresses/use-cases/get-all-addresses'
 import { getOneAddressesController } from '@modules/addresses/use-cases/get-one-addresses'
+import { createAddressesController } from '@modules/addresses/use-cases/create-addresses'
+import { deleteAddressesController } from '@modules/addresses/use-cases/delete-addresses'
 import { updateAddressesController } from '@modules/addresses/use-cases/update-addresses'
-
 import { Router } from 'express'
 const router = Router()
 
