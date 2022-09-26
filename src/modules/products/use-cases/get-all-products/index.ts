@@ -1,4 +1,4 @@
-import { ProductsRepository } from '@modules/products/repositories/products.repository'
+import { ProductsRepository } from '@modules/products/repositories/type-orm/products.repository'
 import { GetAllProductsController } from './get-all-products.controller'
 import { GetAllProductsUseCase } from './get-all-products.use-case'
 

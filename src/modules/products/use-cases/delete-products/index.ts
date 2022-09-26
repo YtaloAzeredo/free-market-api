@@ -1,4 +1,4 @@
-import { ProductsRepository } from '@modules/products/repositories/products.repository'
+import { ProductsRepository } from '@modules/products/repositories/type-orm/products.repository'
 import { DeleteProductsController } from './delete-products.controller'
 import { DeleteProductsUseCase } from './delete-products.use-case'
 

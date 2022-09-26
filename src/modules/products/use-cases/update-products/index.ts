@@ -1,4 +1,4 @@
-import { ProductsRepository } from '@modules/products/repositories/products.repository'
+import { ProductsRepository } from '@modules/products/repositories/type-orm/products.repository'
 import { UpdateProductsController } from './update-products.controller'
 import { UpdateProductsUseCase } from './update-products.use-case'
 

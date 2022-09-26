@@ -1,7 +1,7 @@
 import NotFoundError from '@errors/not-found.error'
-import { Abstract } from '../../../repositories/abstract.repository'
-import { IProductsRepository } from './products-repository.interface'
-import { Products } from '../models/products.model'
+import { Abstract } from '../../../../repositories/abstract.repository'
+import { IProductsRepository } from '../products-repository.interface'
+import { Products } from '../../models/products.model'
 
 export class ProductsRepository extends Abstract implements IProductsRepository {
   constructor () {

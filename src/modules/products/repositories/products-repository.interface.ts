@@ -7,5 +7,5 @@ export interface IProductsRepository extends IRepository {
   add(data: any): Products
   store(data: any): Promise<Products>
   save(data: any): Promise<Products>
-  remove(data: any): Promise<Products>
+  remove(data: any): Promise<void>
 }

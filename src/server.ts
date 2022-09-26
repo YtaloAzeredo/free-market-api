@@ -9,7 +9,17 @@ import { errorHandler } from './middlewares/error-handler.middleware'
 
 const port = process.env.PORT
 
-function startpApp (): any {
+const handleErrorException = () => {
+  process.on('uncaughtException', (error, origin) => {
+    console.log(`${origin}: ${error}`)
+  })
+
+  process.on('unhandledRejection', (error) => {
+    console.log(`unhandledRejection: ${error}`)
+  })
+}
+
+const startpApp = () => {
   const app = express()
   app.use(express.json())
   routes.map((route) => app.use(route))
@@ -18,16 +28,6 @@ function startpApp (): any {
   console.log(`----------------Server running on port ${port}----------------`)
   handleErrorException()
   app.use(errorHandler)
-}
-
-function handleErrorException () {
-  process.on('uncaughtException', (error, origin) => {
-    console.log(`${origin}: ${error}`)
-  })
-
-  process.on('unhandledRejection', (error) => {
-    console.log(`unhandledRejection: ${error}`)
-  })
 }
 
 startpApp()
