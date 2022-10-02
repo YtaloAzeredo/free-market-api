@@ -1,4 +1,4 @@
-import { UserRepository } from '../../repositories/users.repository'
+import { UserRepository } from '../../repositories/type-orm/users.repository'
 import { GetAllUsersController } from './get-all-users.controller'
 import { GetAllUsersUseCase } from './get-all-users.use-case'
 

@@ -1,7 +1,7 @@
 import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '../../../../repositories/abstract.repository'
 import { IProductsRepository } from '../products-repository.interface'
-import { Products } from '../../models/products.model'
+import { Products } from '../../models/type-orm/products.model'
 
 export class ProductsRepository extends Abstract implements IProductsRepository {
   constructor () {
@@ -33,7 +33,7 @@ export class ProductsRepository extends Abstract implements IProductsRepository 
     return request.save()
   }
 
-  async remove (request: Products): Promise<Products> {
-    return request.remove()
+  async remove (request: Products): Promise<void> {
+    await request.remove()
   }
 }

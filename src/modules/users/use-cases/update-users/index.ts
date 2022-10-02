@@ -1,4 +1,4 @@
-import { UserRepository } from '../../repositories/users.repository'
+import { UserRepository } from '../../repositories/type-orm/users.repository'
 import { UpdateUsersController } from './update-users.controller'
 import { UpdateUsersUseCase } from './update-users.use-case'
 

@@ -1,4 +1,4 @@
-import { AddressesRepository } from '@modules/addresses/repositories/addresses.repository'
+import { AddressesRepository } from '@modules/addresses/repositories/type-orm/addresses.repository'
 import { GetOneAddressesController } from './get-one-addresses.controller'
 import { GetOneAddressesUseCase } from './get-one-addresses.use-case'
 

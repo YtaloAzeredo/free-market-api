@@ -1,4 +1,4 @@
-import { AddressesRepository } from '@modules/addresses/repositories/addresses.repository'
+import { AddressesRepository } from '@modules/addresses/repositories/type-orm/addresses.repository'
 import { UpdateAddressesController } from './update-addresses.controller'
 import { UpdateAddressesUseCase } from './update-addresses.use-case'
 

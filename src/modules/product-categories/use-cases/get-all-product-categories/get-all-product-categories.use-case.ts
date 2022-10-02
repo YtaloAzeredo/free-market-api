@@ -1,5 +1,5 @@
 import { IUseCase } from '@interfaces/use-case.interface'
-import { ProductCategories } from '@modules/product-categories/models/product-categories.model'
+import { ProductCategories } from '@modules/product-categories/models/type-orm/product-categories.model'
 import { IProductCategoriesRepository } from '@modules/product-categories/repositories/product-categories-repository.interface'
 
 export class GetAllProductCategoriesUseCase implements IUseCase {

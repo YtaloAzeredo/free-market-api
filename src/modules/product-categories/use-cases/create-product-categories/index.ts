@@ -1,4 +1,4 @@
-import { ProductCategoriesRepository } from '@modules/product-categories/repositories/product-categories.repository'
+import { ProductCategoriesRepository } from '@modules/product-categories/repositories/type-orm/product-categories.repository'
 import { CreateProductCategoriesController } from './create-product-categories.controller'
 import { CreateProductCategoriesUseCase } from './create-product-categories.use-case'
 

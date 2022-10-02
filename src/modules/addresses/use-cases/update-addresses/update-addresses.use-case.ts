@@ -1,6 +1,6 @@
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IAddressesRepository } from '@modules/addresses/repositories/addresses-repository.interface'
-import { Addresses } from '@modules/addresses/models/addresses.model'
+import { Addresses } from '@modules/addresses/models/type-orm/addresses.model'
 
 export class UpdateAddressesUseCase implements IUseCase {
   constructor (

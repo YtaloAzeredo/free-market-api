@@ -1,4 +1,4 @@
-import { AddressesRepository } from '@modules/addresses/repositories/addresses.repository'
+import { AddressesRepository } from '@modules/addresses/repositories/type-orm/addresses.repository'
 import { DeleteAddressesController } from './delete-addresses.controller'
 import { DeleteAddressesUseCase } from './delete-addresses.use-case'
 

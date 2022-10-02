@@ -1,6 +1,6 @@
 import { Abstract } from '../../../../repositories/abstract.repository'
 import { IProductsRepository } from '../products-repository.interface'
-import { Products } from '../../models/products.model'
+import { Products } from '../../models/type-orm/products.model'
 
 const productMockedData = {
   description: 'test',

@@ -1,6 +1,6 @@
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IProductCategoriesRepository } from '@modules/product-categories/repositories/product-categories-repository.interface'
-import { Products } from '@modules/products/models/products.model'
+import { Products } from '@modules/products/models/type-orm/products.model'
 import { IProductsRepository } from '@modules/products/repositories/products-repository.interface'
 
 export class CreateProductsUseCase implements IUseCase {

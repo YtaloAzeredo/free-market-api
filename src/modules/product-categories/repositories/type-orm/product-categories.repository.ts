@@ -1,7 +1,7 @@
-import { ProductCategories } from '@modules/product-categories/models/product-categories.model'
+import { ProductCategories } from '@modules/product-categories/models/type-orm/product-categories.model'
 import NotFoundError from '@errors/not-found.error'
-import { Abstract } from '../../../repositories/abstract.repository'
-import { IProductCategoriesRepository } from './product-categories-repository.interface'
+import { Abstract } from '../../../../repositories/abstract.repository'
+import { IProductCategoriesRepository } from '../product-categories-repository.interface'
 
 export class ProductCategoriesRepository extends Abstract implements IProductCategoriesRepository {
   constructor () {

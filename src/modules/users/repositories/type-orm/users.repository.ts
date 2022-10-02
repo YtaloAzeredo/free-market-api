@@ -1,7 +1,7 @@
-import { Users } from '@modules/users/models/users.model'
+import { Users } from '@modules/users/models/type-orm/users.model'
 import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '@repositories/abstract.repository'
-import { IUsersRepository } from './users-repository.interface'
+import { IUsersRepository } from '../users-repository.interface'
 
 export class UserRepository extends Abstract implements IUsersRepository {
   constructor () {

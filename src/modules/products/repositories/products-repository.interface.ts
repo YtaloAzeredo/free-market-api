@@ -1,5 +1,5 @@
 import { IRepository } from '@interfaces/repository.interface'
-import { Products } from '../models/products.model'
+import { Products } from '../models/type-orm/products.model'
 
 export interface IProductsRepository extends IRepository {
   getAll(data: any): Promise<Products[]>

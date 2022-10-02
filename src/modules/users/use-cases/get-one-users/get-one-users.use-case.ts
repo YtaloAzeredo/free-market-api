@@ -1,4 +1,4 @@
-import { Users } from '@modules/users/models/users.model'
+import { Users } from '@modules/users/models/type-orm/users.model'
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IUsersRepository } from '@modules/users/repositories/users-repository.interface'
 

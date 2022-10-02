@@ -1,5 +1,5 @@
 import { IRepository } from '@interfaces/repository.interface'
-import { Users } from '@modules/users/models/users.model'
+import { Users } from '@modules/users/models/type-orm/users.model'
 
 export interface IUsersRepository extends IRepository {
   getAll(data: any): Promise<Users[]>

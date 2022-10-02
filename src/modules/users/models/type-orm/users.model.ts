@@ -1,4 +1,4 @@
-import { SalesData } from '@modules/sales-data/models/sales-data.model'
+import { SalesData } from '@modules/sales-data/models/type-orm/sales-data.model'
 import {
   BaseEntity,
   Column,
@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
-import { Addresses } from '../../addresses/models/addresses.model'
+import { Addresses } from '../../../addresses/models/type-orm/addresses.model'
 
 @Entity()
 export class Users extends BaseEntity {

@@ -1,7 +1,7 @@
-import { Addresses } from '@modules/addresses/models/addresses.model'
+import { Addresses } from '@modules/addresses/models/type-orm/addresses.model'
 import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '@repositories/abstract.repository'
-import { IAddressesRepository } from './addresses-repository.interface'
+import { IAddressesRepository } from '../addresses-repository.interface'
 
 export class AddressesRepository extends Abstract implements IAddressesRepository {
   constructor () {
