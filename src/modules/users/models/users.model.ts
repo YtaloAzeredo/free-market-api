@@ -1,4 +1,4 @@
-import { SalesData } from '@models/sales-data.model'
+import { SalesData } from '@modules/sales-data/models/sales-data.model'
 import {
   BaseEntity,
   Column,
