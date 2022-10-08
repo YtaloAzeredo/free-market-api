@@ -1,7 +1,6 @@
 import NotFoundError from '@errors/not-found.error'
 import { IUseCase } from '@interfaces/use-case.interface'
 import { ProductsModel } from '@modules/products/models/products.model'
-import { Products } from '@modules/products/models/type-orm/products.model'
 import { IProductsRepository } from '@modules/products/repositories/products-repository.interface'
 
 export class UpdateProductsUseCase implements IUseCase {
@@ -9,7 +8,7 @@ export class UpdateProductsUseCase implements IUseCase {
     private readonly productsRepository: IProductsRepository
   ) {}
 
-  async execute (productsData: Products): Promise<ProductsModel> {
+  async execute (productsData: ProductsModel): Promise<ProductsModel> {
     const response = await this.productsRepository.getOne({ id: productsData.id })
     if (!response) throw new NotFoundError('Product not found')
     response.description = productsData.description
