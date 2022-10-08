@@ -1,6 +1,6 @@
-import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '../../../../repositories/abstract.repository'
 import { IProductsRepository } from '../products-repository.interface'
+import { ProductsModel } from '../../models/products.model'
 import { Products } from '../../models/type-orm/products.model'
 
 export class ProductsRepository extends Abstract implements IProductsRepository {
@@ -8,28 +8,25 @@ export class ProductsRepository extends Abstract implements IProductsRepository 
     super('Products')
   }
 
-  async getAll ({ throws }: { throws?: boolean } = {}): Promise<Products[]> {
-    const response = await Products.find()
-    if (!response.length && throws) throw new NotFoundError(this.getNotFoundError())
+  async getAll (): Promise<ProductsModel[]> {
+    return Products.find()
+  }
+
+  async getOne ({ id }: { id: number }): Promise<ProductsModel> {
+    const response = await Products.findOneBy({ id }) as ProductsModel
     return response
   }
 
-  async getOne ({ id, throws }: { id?: number, throws?: boolean }): Promise<Products> {
-    const response = await Products.findOneBy({ id }) as Products
-    if (!response && throws) throw new NotFoundError(this.getNotFoundError())
-    return response
-  }
-
-  add (dataValues: Products): Products {
+  add (dataValues: Products): ProductsModel {
     return Products.create(dataValues)
   }
 
-  async store (dataValues: Products): Promise<Products> {
+  async store (dataValues: Products): Promise<ProductsModel> {
     const response = Products.create(dataValues)
     return response.save()
   }
 
-  async save (request: Products): Promise<Products> {
+  async save (request: Products): Promise<ProductsModel> {
     return request.save()
   }
 

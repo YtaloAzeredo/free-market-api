@@ -11,9 +11,10 @@ import {
 } from 'typeorm'
 import { ProductCategories } from '../../../product-categories/models/type-orm/product-categories.model'
 import { Users } from '../../../users/models/type-orm/users.model'
+import { ProductsModel } from '../products.model'
 
 @Entity()
-export class Products extends BaseEntity {
+export class Products extends BaseEntity implements ProductsModel {
   @PrimaryGeneratedColumn()
     id!: number
 

@@ -1,11 +1,11 @@
 import { IRepository } from '@interfaces/repository.interface'
-import { Products } from '../models/type-orm/products.model'
+import { ProductsModel } from '../models/products.model'
 
 export interface IProductsRepository extends IRepository {
-  getAll(data: any): Promise<Products[]>
-  getOne(data: any): Promise<Products>
-  add(data: any): Products
-  store(data: any): Promise<Products>
-  save(data: any): Promise<Products>
+  getAll(data?: any): Promise<ProductsModel[]>
+  getOne(data: any): Promise<ProductsModel>
+  add(data: any): ProductsModel
+  store(data: any): Promise<ProductsModel>
+  save(data: any): Promise<ProductsModel>
   remove(data: any): Promise<void>
 }
