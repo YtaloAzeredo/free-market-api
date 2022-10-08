@@ -13,10 +13,12 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "jest"
     ],
     "rules": {
         "no-use-before-define": 0,
-        "no-useless-constructor": 0
+        "no-useless-constructor": 0,
+        "array-callback-return": 0
     }
 }
