@@ -1,11 +1,11 @@
 import { IRepository } from '@interfaces/repository.interface'
-import { Addresses } from '../models/type-orm/addresses.model'
+import { AddressesModel } from '../models/addresses.model'
 
 export interface IAddressesRepository extends IRepository {
-  getAll(data: any): Promise<Addresses[]>
-  getOne(data: any): Promise<Addresses>
-  add(data: any): Addresses
-  store(data: any): Promise<Addresses>
-  save(data: any): Promise<Addresses>
-  remove(data: any): Promise<Addresses>
+  getAll(data?: any): Promise<AddressesModel[]>
+  getOne(data: any): Promise<AddressesModel>
+  add(data: any): AddressesModel
+  store(data: any): Promise<AddressesModel>
+  save(data: any): Promise<AddressesModel>
+  remove(data: any): Promise<AddressesModel>
 }

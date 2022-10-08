@@ -1,39 +1,36 @@
 import { Addresses } from '@modules/addresses/models/type-orm/addresses.model'
-import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '@repositories/abstract.repository'
 import { IAddressesRepository } from '../addresses-repository.interface'
+import { AddressesModel } from '@modules/addresses/models/addresses.model'
 
 export class AddressesRepository extends Abstract implements IAddressesRepository {
   constructor () {
     super('Address')
   }
 
-  async getAll ({ throws }: { throws?: boolean } = {}): Promise<Addresses[]> {
-    const response = await Addresses.find()
-    if (!response.length && throws) throw new NotFoundError(this.getNotFoundError())
+  async getAll (): Promise<AddressesModel[]> {
+    return Addresses.find()
+  }
+
+  async getOne ({ id }: { id: number }): Promise<AddressesModel> {
+    const response = await Addresses.findOneBy({ id }) as AddressesModel
     return response
   }
 
-  async getOne ({ id, throws }: { id?: number, throws?: boolean }): Promise<Addresses> {
-    const response = await Addresses.findOneBy({ id }) as Addresses
-    if (!response && throws) throw new NotFoundError(this.getNotFoundError())
-    return response
-  }
-
-  add (dataValues: Addresses): Addresses {
+  add (dataValues: Addresses): AddressesModel {
     return Addresses.create(dataValues)
   }
 
-  async store (dataValues: Addresses): Promise<Addresses> {
+  async store (dataValues: Addresses): Promise<AddressesModel> {
     const response = Addresses.create(dataValues)
     return response.save()
   }
 
-  async save (request: Addresses): Promise<Addresses> {
+  async save (request: Addresses): Promise<AddressesModel> {
     return request.save()
   }
 
-  async remove (request: Addresses): Promise<Addresses> {
+  async remove (request: Addresses): Promise<AddressesModel> {
     return request.remove()
   }
 }
