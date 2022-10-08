@@ -1,3 +1,4 @@
+import NotFoundError from '@errors/not-found.error'
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IAddressesRepository } from '@modules/addresses/repositories/addresses-repository.interface'
 
@@ -7,8 +8,9 @@ export class DeleteAddressesUseCase implements IUseCase {
   ) {}
 
   async execute (id: number): Promise<string> {
-    const response = await this.addressesRepository.getOne({ id, throws: true })
-    await this.addressesRepository.remove(response)
+    const foundAddress = await this.addressesRepository.getOne({ id })
+    if (!foundAddress) throw new NotFoundError('Address not found')
+    await this.addressesRepository.remove(foundAddress)
     return this.addressesRepository.getDeleteMessage()
   }
 }
