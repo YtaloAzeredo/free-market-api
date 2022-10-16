@@ -10,7 +10,7 @@ export class CreateProductCategoriesUseCase implements IUseCase {
 
   async execute (productCategoryData: ProductCategories): Promise<ProductCategories> {
     const categoryExist = await this.productCategoriesRepository.getOne({ code: productCategoryData.code })
-    if (categoryExist) throw new ConflictError(this.productCategoriesRepository.getConflictError())
+    if (categoryExist) throw new ConflictError(this.productCategoriesRepository.getConflictMessage())
     return this.productCategoriesRepository.store(productCategoryData)
   }
 }

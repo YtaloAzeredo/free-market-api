@@ -1,6 +1,6 @@
 export interface IRepository {
-  getNotFoundError(): string
-  getConflictError(): string
+  getNotFoundMessage(): string
+  getConflictMessage(): string
   getUpdateMessage(): string
   getDeleteMessage(): string
 }

@@ -5,11 +5,11 @@ export abstract class Abstract {
     this.tableName = tableName
   }
 
-  getNotFoundError () {
+  getNotFoundMessage () {
     return `${this.tableName} not found`
   }
 
-  getConflictError () {
+  getConflictMessage () {
     return `${this.tableName} already exist`
   }
 

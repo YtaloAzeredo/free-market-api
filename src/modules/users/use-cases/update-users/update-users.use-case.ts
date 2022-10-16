@@ -10,7 +10,7 @@ export class UpdateUsersUseCase implements IUseCase {
     const response = await this.usersRepository.getOne({ id: userData.id, throws: true })
     if (userData.email) {
       const userExist = await this.usersRepository.getOne({ email: userData.email })
-      if (userExist) throw new ConflictError(this.usersRepository.getConflictError())
+      if (userExist) throw new ConflictError(this.usersRepository.getConflictMessage())
     }
     response.name = userData.name
     response.email = userData.email

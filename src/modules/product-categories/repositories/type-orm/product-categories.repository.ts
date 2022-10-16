@@ -10,13 +10,13 @@ export class ProductCategoriesRepository extends Abstract implements IProductCat
 
   async getAll ({ throws }: { throws?: boolean } = {}): Promise<ProductCategories[]> {
     const response = await ProductCategories.find()
-    if (!response.length && throws) throw new NotFoundError(this.getNotFoundError())
+    if (!response.length && throws) throw new NotFoundError(this.getNotFoundMessage())
     return response
   }
 
   async getOne ({ id, code, throws }: { id?: number, code?: string, throws?: boolean }): Promise<ProductCategories> {
     const response = await ProductCategories.findOneBy({ id, code }) as ProductCategories
-    if (!response && throws) throw new NotFoundError(this.getNotFoundError())
+    if (!response && throws) throw new NotFoundError(this.getNotFoundMessage())
     return response
   }
 

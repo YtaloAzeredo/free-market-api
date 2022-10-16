@@ -10,13 +10,13 @@ export class UserRepository extends Abstract implements IUsersRepository {
 
   async getAll ({ throws }: { throws?: boolean } = {}): Promise<Users[]> {
     const response = await Users.find()
-    if (!response.length && throws) throw new NotFoundError(this.getNotFoundError())
+    if (!response.length && throws) throw new NotFoundError(this.getNotFoundMessage())
     return response
   }
 
   async getOne ({ id, email, throws }: { id?: number, email?: string, throws?: boolean }): Promise<Users> {
     const response = await Users.findOneBy({ id, email }) as Users
-    if (!response && throws) throw new NotFoundError(this.getNotFoundError())
+    if (!response && throws) throw new NotFoundError(this.getNotFoundMessage())
     return response
   }
 
