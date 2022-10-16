@@ -12,7 +12,7 @@ export class CreateAddressesUseCase implements IUseCase {
 
   async execute (addressesData: AddressesModel): Promise<AddressesModel> {
     const foundUser = await this.usersRepository.getOne({ id: addressesData.user })
-    if (!foundUser) throw new NotFoundError('User not found')
+    if (!foundUser) throw new NotFoundError(this.usersRepository.getNotFoundMessage())
     return this.addressesRepository.store(addressesData)
   }
 }

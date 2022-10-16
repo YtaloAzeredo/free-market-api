@@ -9,8 +9,8 @@ export class GetAllAddressesUseCase implements IUseCase {
   ) {}
 
   async execute (): Promise<AddressesModel[]> {
-    const foundAddress = await this.addressesRepository.getAll()
-    if (!foundAddress.length) throw new NotFoundError('Addresses not found')
-    return foundAddress
+    const foundAddresses = await this.addressesRepository.getAll()
+    if (!foundAddresses.length) throw new NotFoundError(this.addressesRepository.getNotFoundMessage())
+    return foundAddresses
   }
 }

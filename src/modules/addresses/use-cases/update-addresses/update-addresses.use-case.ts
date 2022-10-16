@@ -10,7 +10,7 @@ export class UpdateAddressesUseCase implements IUseCase {
 
   async execute (addressesData: AddressesModel): Promise<AddressesModel> {
     const foundAddress = await this.addressesRepository.getOne({ id: addressesData.id })
-    if (!foundAddress) throw new NotFoundError('Address not found')
+    if (!foundAddress) throw new NotFoundError(this.addressesRepository.getNotFoundMessage())
     foundAddress.street = addressesData.street
     foundAddress.city = addressesData.city
     foundAddress.zipCode = addressesData.zipCode
