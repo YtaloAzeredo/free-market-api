@@ -1,7 +1,7 @@
 import { Addresses } from '@modules/addresses/models/type-orm/addresses.model'
 import { Abstract } from '@repositories/abstract.repository'
 import { IAddressesRepository } from '../addresses-repository.interface'
-import { AddressesModel } from '@modules/addresses/models/addresses.model'
+import { AddressesModel } from '@modules/addresses/models/addresses-model.interface'
 
 export class AddressesRepository extends Abstract implements IAddressesRepository {
   constructor () {

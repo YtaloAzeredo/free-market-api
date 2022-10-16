@@ -8,7 +8,7 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { Users } from '../../../users/models/type-orm/users.model'
-import { AddressesModel } from '../addresses.model'
+import { AddressesModel } from '../addresses-model.interface'
 
 @Entity()
 export class Addresses extends BaseEntity implements AddressesModel {

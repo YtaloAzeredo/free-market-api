@@ -1,4 +1,4 @@
-import { ProductsModel } from '@modules/products/models/products.model'
+import { ProductsModel } from '@modules/products/models/products-model.interface'
 import { GetAllProductsUseCase } from './get-all-products.use-case'
 const ZERO = 0
 const PRODUCTS_PROPS = [

@@ -1,7 +1,7 @@
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IAddressesRepository } from '@modules/addresses/repositories/addresses-repository.interface'
 import NotFoundError from '@errors/not-found.error'
-import { AddressesModel } from '@modules/addresses/models/addresses.model'
+import { AddressesModel } from '@modules/addresses/models/addresses-model.interface'
 
 export class GetOneAddressesUseCase implements IUseCase {
   constructor (

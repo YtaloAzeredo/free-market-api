@@ -8,7 +8,7 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { Products } from '../../../products/models/type-orm/products.model'
-import { ProductCategoriesModel } from '../product-categories.model'
+import { ProductCategoriesModel } from '../product-categories-model.interface'
 
 @Entity()
 export class ProductCategories extends BaseEntity implements ProductCategoriesModel {

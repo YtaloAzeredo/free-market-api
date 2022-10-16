@@ -1,6 +1,6 @@
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IAddressesRepository } from '@modules/addresses/repositories/addresses-repository.interface'
-import { AddressesModel } from '@modules/addresses/models/addresses.model'
+import { AddressesModel } from '@modules/addresses/models/addresses-model.interface'
 import NotFoundError from '@errors/not-found.error'
 
 export class UpdateAddressesUseCase implements IUseCase {

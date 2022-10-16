@@ -1,6 +1,6 @@
 import { Abstract } from '../../../../repositories/abstract.repository'
 import { IProductsRepository } from '../products-repository.interface'
-import { ProductsModel } from '../../models/products.model'
+import { ProductsModel } from '../../models/products-model.interface'
 import { Products } from '../../models/type-orm/products.model'
 
 export class ProductsRepository extends Abstract implements IProductsRepository {

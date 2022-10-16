@@ -1,6 +1,6 @@
 import NotFoundError from '@errors/not-found.error'
 import { IUseCase } from '@interfaces/use-case.interface'
-import { ProductsModel } from '@modules/products/models/products.model'
+import { ProductsModel } from '@modules/products/models/products-model.interface'
 import { IProductsRepository } from '@modules/products/repositories/products-repository.interface'
 
 export class GetOneProductsUseCase implements IUseCase {
