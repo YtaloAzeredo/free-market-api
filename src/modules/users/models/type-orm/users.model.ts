@@ -9,9 +9,10 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { Addresses } from '../../../addresses/models/type-orm/addresses.model'
+import { UsersModel } from '../users.model'
 
 @Entity()
-export class Users extends BaseEntity {
+export class Users extends BaseEntity implements UsersModel {
   @PrimaryGeneratedColumn()
     id!: number
 

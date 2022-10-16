@@ -8,9 +8,10 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { Products } from '../../../products/models/type-orm/products.model'
+import { ProductCategoriesModel } from '../product-categories.model'
 
 @Entity()
-export class ProductCategories extends BaseEntity {
+export class ProductCategories extends BaseEntity implements ProductCategoriesModel {
   @PrimaryGeneratedColumn()
     id!: number
 
