@@ -1,3 +1,4 @@
+import NotFoundError from '@errors/not-found.error'
 import { IUseCase } from '@interfaces/use-case.interface'
 import { IProductCategoriesRepository } from '@modules/product-categories/repositories/product-categories-repository.interface'
 
@@ -7,7 +8,8 @@ export class DeleteProductCategoriesUseCase implements IUseCase {
   ) {}
 
   async execute (id: number): Promise<string> {
-    const response = await this.productCategoriesRepository.getOne({ id, throws: true })
+    const response = await this.productCategoriesRepository.getOne({ id })
+    if (!response) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
     await this.productCategoriesRepository.remove(response)
     return this.productCategoriesRepository.getDeleteMessage()
   }

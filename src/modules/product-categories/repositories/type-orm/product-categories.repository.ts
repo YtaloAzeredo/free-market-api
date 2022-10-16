@@ -1,5 +1,4 @@
 import { ProductCategories } from '@modules/product-categories/models/type-orm/product-categories.model'
-import NotFoundError from '@errors/not-found.error'
 import { Abstract } from '../../../../repositories/abstract.repository'
 import { IProductCategoriesRepository } from '../product-categories-repository.interface'
 
@@ -8,15 +7,12 @@ export class ProductCategoriesRepository extends Abstract implements IProductCat
     super('ProductCategory')
   }
 
-  async getAll ({ throws }: { throws?: boolean } = {}): Promise<ProductCategories[]> {
-    const response = await ProductCategories.find()
-    if (!response.length && throws) throw new NotFoundError(this.getNotFoundMessage())
-    return response
+  async getAll (): Promise<ProductCategories[]> {
+    return ProductCategories.find()
   }
 
-  async getOne ({ id, code, throws }: { id?: number, code?: string, throws?: boolean }): Promise<ProductCategories> {
+  async getOne ({ id, code }: { id?: number, code?: string }): Promise<ProductCategories> {
     const response = await ProductCategories.findOneBy({ id, code }) as ProductCategories
-    if (!response && throws) throw new NotFoundError(this.getNotFoundMessage())
     return response
   }
 

@@ -1,3 +1,4 @@
+import NotFoundError from '@errors/not-found.error'
 import { IUseCase } from '@interfaces/use-case.interface'
 import { ProductCategories } from '@modules/product-categories/models/type-orm/product-categories.model'
 import { IProductCategoriesRepository } from '@modules/product-categories/repositories/product-categories-repository.interface'
@@ -8,6 +9,8 @@ export class GetAllProductCategoriesUseCase implements IUseCase {
   ) {}
 
   async execute (): Promise<ProductCategories[]> {
-    return this.productCategoriesRepository.getAll({ throws: true })
+    const foundProductCategories = await this.productCategoriesRepository.getAll()
+    if (!foundProductCategories.length) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
+    return foundProductCategories
   }
 }
