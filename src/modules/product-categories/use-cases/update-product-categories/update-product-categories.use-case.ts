@@ -9,9 +9,9 @@ export class UpdateProductCategoriesUseCase implements IUseCase {
   ) {}
 
   async execute (productCategoriesData: ProductCategories): Promise<ProductCategories> {
-    const response = await this.productCategoriesRepository.getOne({ id: productCategoriesData.id })
-    if (!response) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
-    response.description = productCategoriesData.description
-    return this.productCategoriesRepository.save(response)
+    const foundCategory = await this.productCategoriesRepository.getOne({ id: productCategoriesData.id })
+    if (!foundCategory) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
+    foundCategory.description = productCategoriesData.description
+    return this.productCategoriesRepository.save(foundCategory)
   }
 }

@@ -9,8 +9,8 @@ export class GetOneProductCategoriesUseCase implements IUseCase {
   ) {}
 
   async execute (id: number): Promise<ProductCategories> {
-    const foundProductCategory = await this.productCategoriesRepository.getOne({ id })
-    if (!foundProductCategory) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
-    return foundProductCategory
+    const foundCategory = await this.productCategoriesRepository.getOne({ id })
+    if (!foundCategory) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
+    return foundCategory
   }
 }
