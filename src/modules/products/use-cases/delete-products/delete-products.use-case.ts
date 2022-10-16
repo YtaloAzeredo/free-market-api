@@ -8,9 +8,9 @@ export class DeleteProductsUseCase implements IUseCase {
   ) {}
 
   async execute (id: number): Promise<string> {
-    const response = await this.productsRepository.getOne({ id })
-    if (!response) throw new NotFoundError('Product not found')
-    await this.productsRepository.remove(response)
+    const foundProduct = await this.productsRepository.getOne({ id })
+    if (!foundProduct) throw new NotFoundError(this.productsRepository.getNotFoundMessage())
+    await this.productsRepository.remove(foundProduct)
     return this.productsRepository.getDeleteMessage()
   }
 }

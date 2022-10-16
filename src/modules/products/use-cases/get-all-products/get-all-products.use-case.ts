@@ -9,8 +9,8 @@ export class GetAllProductsUseCase implements IUseCase {
   ) {}
 
   async execute (): Promise<ProductsModel[]> {
-    const products = await this.productsRepository.getAll()
-    if (!products.length) throw new NotFoundError('Nenhum produto encontrado')
-    return products
+    const foundProducts = await this.productsRepository.getAll()
+    if (!foundProducts.length) throw new NotFoundError(this.productsRepository.getNotFoundMessage())
+    return foundProducts
   }
 }

@@ -12,7 +12,7 @@ export class CreateProductsUseCase implements IUseCase {
 
   async execute (productsData: ProductsModel): Promise<ProductsModel> {
     const foundProductCategory = await this.productCategoriesRepository.getOne({ id: productsData.category })
-    if (!foundProductCategory) throw new NotFoundError('Product category not found')
+    if (!foundProductCategory) throw new NotFoundError(this.productCategoriesRepository.getNotFoundMessage())
     return this.productsRepository.store(productsData)
   }
 }
