@@ -1,12 +1,12 @@
 import { ProductsModel } from '@modules/products/models/products-model.interface'
 import { GetAllProductsUseCase } from './get-all-products.use-case'
-const ZERO = 0
-const PRODUCTS_PROPS = [
+const zero = 0
+const productProps = [
   'description',
   'price',
   'quantity'
 ]
-const ERROR_MESSAGE = 'Nenhum produto encontrado'
+const errorMessage = 'Nenhum produto encontrado'
 let productsRepository: any, getAllProductsUseCase: GetAllProductsUseCase
 describe('GetAllProductsUseCase', () => {
   beforeEach(() => makeSut())
@@ -17,9 +17,9 @@ describe('GetAllProductsUseCase', () => {
       const response = await getAllProductsUseCase.execute()
 
       expect(repositorySpy).toHaveBeenCalled()
-      expect(response.length).toBeGreaterThan(ZERO)
+      expect(response.length).toBeGreaterThan(zero)
       response.map(result => {
-        PRODUCTS_PROPS.map(prop => {
+        productProps.map(prop => {
           expect(result).toHaveProperty(prop)
         })
       })
@@ -34,7 +34,7 @@ describe('GetAllProductsUseCase', () => {
 
       await expect(response)
         .rejects
-        .toThrow(ERROR_MESSAGE)
+        .toThrow(errorMessage)
     })
   })
 })
