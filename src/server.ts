@@ -5,7 +5,7 @@ import './bootstrap'
 import './database'
 import { routes } from './routes'
 import { middlewares } from './middlewares'
-import { errorHandler } from './middlewares/error-handler.middleware'
+import { errorHandler } from './middlewares/express/error-handler.middleware'
 
 const port = process.env.PORT
 
@@ -22,8 +22,8 @@ const handleErrorException = () => {
 const startpApp = () => {
   const app = express()
   app.use(express.json())
-  routes.map((route) => app.use(route))
   middlewares.map((middleware) => app.use(middleware))
+  routes.map((route) => app.use(route))
   app.listen(port)
   console.log(`----------------Server running on port ${port}----------------`)
   handleErrorException()
