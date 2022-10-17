@@ -6,7 +6,7 @@ import { IUsersRepository } from '@modules/users/repositories/users-repository.i
 import moment from 'moment'
 
 const defaultError = 'Incorrect email or password'
-const dateFormat = 'YYYY-MM-DD hh:mm:ss'
+const dateFormat = 'DD-MM-YYYY hh:mm:ss'
 const expirationTime = process.env.APP_SECRET_EXPIRATION_TIME
 
 export class SignInUseCase implements IUseCase {
@@ -21,7 +21,7 @@ export class SignInUseCase implements IUseCase {
     if (!foundUser) throw new NotFoundError(defaultError)
     const passwordMatch = await this.encryptService.compare(userData.password, foundUser.password)
     if (!passwordMatch) throw new NotFoundError(defaultError)
-    const token = this.authService.createToken({ email: userData.email, password: userData.password })
+    const token = await this.authService.createToken({ email: userData.email, password: userData.password })
     const now = new Date()
     const expires = moment(now).add(expirationTime, 'seconds').format(dateFormat)
     return {
