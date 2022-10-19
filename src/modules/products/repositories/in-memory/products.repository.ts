@@ -15,11 +15,11 @@ export class ProductsRepository extends Abstract implements IProductsRepository 
     super('Products')
   }
 
-  async getAll ({ throws }: { throws?: boolean } = {}): Promise<Products[]> {
+  async getAll (): Promise<Products[]> {
     return Promise.resolve(this.products)
   }
 
-  async getOne ({ id, throws }: { id?: number, throws?: boolean }): Promise<Products> {
+  async getOne ({ id }: { id?: number }): Promise<Products> {
     const foundProduct = this.products.find(product => product.id === id) as Products
     return Promise.resolve(foundProduct)
   }
@@ -47,8 +47,8 @@ export class ProductsRepository extends Abstract implements IProductsRepository 
       ...productMockedData,
       ...dataOptions,
       id: ++this.productId
-    };
+    }
     this.products.push(product)
-    return product;
+    return product
   }
 }
