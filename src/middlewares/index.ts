@@ -1,5 +1,7 @@
-import { expressMiddlewares } from './express'
+import { auth } from './auth.middleware'
+import { corsMiddleware } from './cors.middleware'
 
 export const middlewares = [
-  expressMiddlewares
+  auth,
+  corsMiddleware
 ]
